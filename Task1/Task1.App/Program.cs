@@ -1,13 +1,37 @@
 ﻿// -
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 
-namespace Task1.App;
+namespace Task1;
 
 internal class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World!");
+        var classes = new []
+        {
+            new Classroom { Students = { "Evgeniy", "Sergey", "Andrew" }, },
+            new Classroom { Students = { "Anna", "Viktor", "Vladimir" }, },
+            new Classroom { Students = { "Bulat", "Alex", "Galina" }, }
+        };
+        var allStudents = GetAllStudents(classes);
+        
+        Console.WriteLine(string.Join(" ", allStudents));
+    }
+
+    static string[] GetAllStudents(Classroom[] classes)
+    {
+        string[] allStudents = [];
+
+        // ???
+
+        return allStudents;
+    }
+    
+    public class Classroom
+    {
+        public List<string> Students = new List<string>();
     }
 }
