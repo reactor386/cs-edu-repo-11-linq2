@@ -25,7 +25,21 @@ internal class Program
     {
         string[] allStudents = [];
 
-        // ???
+        // simply flatten 'lists of lists' with [SelectMany()] as it needs in the task
+        allStudents = classes.SelectMany(x => x.Students).ToArray();
+
+        /*
+        // extra example:
+        // use [SelectMany()] overload with resultSelector parameter
+        //  to include data from the parent lists
+        allStudents = classes.SelectMany(x => x.Students,
+            (parentItem, childSingleItem) => new
+            {
+                classCount = parentItem.Students.Count,
+                studentName = childSingleItem
+            })
+            .Select(s => $"{s.studentName} has {s.classCount} classmates").ToArray();
+        */
 
         return allStudents;
     }
